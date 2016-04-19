@@ -1,0 +1,84 @@
+var computerChoice = function(randomNumber){
+      if (randomNumber < 1/3){
+        return "rock";
+      }
+      else if(randomNumber < 2/3){
+        return "paper";
+      }
+      else{
+        return "scissors";
+      }
+    }
+var compare = function(user1,user2){
+  if(user1 === user2){
+    return 0;
+  }
+  else if(user1 === "rock"){
+    if(user2 === "scissors"){
+      return 1;
+    }
+    else{
+      return 2;
+    }
+  }
+  else if(user1 === "paper"){
+    if(user2 === "rock"){
+      return 1;
+    }
+    else{
+      return 2;
+    }
+  }
+  else if(user1 === "scissors"){
+    if(user2 === "paper"){
+      return 1;
+    }
+    else{
+      return 2;
+    }
+  }
+  else{
+    return;
+  }
+}
+var decode = function(code){
+  if(code===0){
+    return "It's a tie";
+  }
+  if(code===1){
+    return "You win";
+  }
+  if(code===2){
+    return "You lost";
+  }
+}
+var playRPS = function(){
+  var user = prompt("Choose Rock, Paper or Scissors");
+  var randomNumber = Math.random();
+  if(user === "rock"||user === "paper"||user === "scissors"){
+  return "Computer chose "+computerChoice(randomNumber)+". "+decode(compare(user,computerChoice(randomNumber)));
+  }
+    return "Invalid Input";
+}
+var play = true;
+while(play === true){
+  console.log(playRPS());/*This is the place to run the game*/
+  do{
+    var sP= prompt("Do you want to play again? Yes or No");
+    var i = true;
+  }while(1 === 3)
+  while(i === true){ 
+    if (sP === "yes" || sP === "Yes"){
+      i = false;
+      play = true;
+    }
+    else if(sP === "no" || sP === "No"){
+      i = false;
+      play = false;
+    }
+    else{
+      i = true;
+     sP = prompt("Come on, YES or NO?");
+    }
+  }
+}
